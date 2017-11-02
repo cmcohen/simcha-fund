@@ -1,0 +1,14 @@
+﻿
+@using SimchaFund.data
+@using SimchaFund.web.Models
+@model ContributorListViewModel
+
+<h2>Contributor List for the @Model.SimchaName simcha</h2>
+<br/>
+
+    @foreach(Contributor c in Model.Contributors)
+    {
+        <h4>@c.FirstName @c.LastName</h4>
+    }
+
+

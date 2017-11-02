@@ -1,0 +1,41 @@
+﻿
+
+@using SimchaFund.data
+@using SimchaFund.web.Models
+@model EditContributorViewModel
+
+<div>
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Edit Contributor</h3>
+                <form action="/home/updatecontributer" method="post" class="well">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" name="firstName" value="@Model.Contributor.FirstName" style="margin-bottom: 25px;" />
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" name="lastName" value="@Model.Contributor.LastName"  style="margin-bottom: 25px;" />
+                    <label>Cell Number</label>
+                    <input type="text" class="form-control" name="cell" value="@Model.Contributor.Cell"  style="margin-bottom: 25px;" />
+                    @*<label>Created Date</label>
+                    <input type="date" class="form-control" name="dateAdded" id="date" value="@Model.Contributor.DateAdded.ToString("yyyy-MM-dd")" style="margin-bottom: 25px;" />*@
+                    <input type="hidden" class="form-control" name="dateAdded" value="@Model.Contributor.DateAdded" />
+                    <input type="hidden" class="form-control" name="id" value="@Model.Contributor.Id" />
+                    <label>Always Include</label>
+                    @if (Model.Contributor.AlwaysInclude)
+                    {
+                        <input type="checkbox" class="form-control" name="alwaysInclude" checked="checked" value="@Model.Contributor.AlwaysInclude" style="margin-bottom: 25px;" />
+                        <input type="hidden" name="alwaysInclude" value="false" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="form-control" name="alwaysInclude" value="@Model.Contributor.AlwaysInclude" style="margin-bottom: 25px;" />
+                        <input type="hidden" name="alwaysInclude" value="false" />
+                    }
+                    <button class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

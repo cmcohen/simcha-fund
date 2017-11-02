@@ -1,0 +1,28 @@
+﻿
+
+<div>
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>New Contributor</h3>
+                <form action="/home/addcontributor" method="post" class="well">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" name="firstName" placeholder="First Name" style="margin-bottom: 25px;" />
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" style="margin-bottom: 25px;" />
+                    <label>Cell Number</label>
+                    <input type="text" class="form-control" name="cell" placeholder="Cell Number" style="margin-bottom: 25px;" />              
+                    <label>Created Date</label>
+                    <input type="date" class="form-control" name="dateAdded" style="margin-bottom: 25px;" />
+                    <label>Always Include</label>
+                    <input type="checkbox" class="form-control" name="alwaysInclude" value="true" style="margin-bottom: 25px;" />
+                    <input type="hidden" name="alwaysInclude" value="false" />
+                    <label>Initial Deposit</label>
+                    <input type="text" class="form-control" name="amount" placeholder="Initial Deposit" style="margin-bottom: 25px;" />
+                    <button class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

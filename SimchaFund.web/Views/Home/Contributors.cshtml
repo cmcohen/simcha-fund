@@ -1,0 +1,58 @@
+﻿
+@using SimchaFund.data
+@using SimchaFund.web.Models
+@model ContributorViewModel
+
+
+<div class="container" style="margin-top: 30px;">
+
+    <div class="row">
+
+        <div class="container">
+            <h2 style="text-align:center;">Contributors</h2>
+            <div class="col-md-2">
+                <a class="btn btn-primary" href="/home/newcontributor">New Contributor</a>
+            </div>
+            <div class="col-md-offset-4">
+                <input type="text" placeholder="Search" class="form-control" id="search" style="display:inline;" />
+                <button class="btn btn-danger" id="clear">Clear</button>
+            </div>
+            <h3 style="text-align:center;">Total: @Model.Total.ToString("C")</h3>
+            <br />
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Deposit</th>
+                    <th>Name</th>
+                    <th>Cell</th>
+                    <th>Balance</th>
+                    <th>Always Include</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach(ContributorWithBalance c in Model.Contributors)
+                {
+                    <tr>
+                        <td><a class="btn btn-success" href="/Home/NewDeposit/?id=@c.Contributor.Id">Deposit</a></td>
+                        <td>@c.Contributor.FirstName @c.Contributor.LastName</td>
+                        <td>@c.Contributor.Cell</td>
+                        <td>@c.Balance</td>
+                        @if (c.Contributor.AlwaysInclude)
+                        {
+                           <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td><a class="btn btn-primary" href="/Home/History/?contributorId=@c.Contributor.Id&name=@c.Contributor.FirstName @c.Contributor.LastName&balance=@c.Balance">Show History</a><a class="btn btn-warning" href="/Home/EditContributor/?id=@c.Contributor.Id">Edit</a></td>
+                        
+                    </tr>
+
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script src="~/Scripts/contributors-search.js"></script>
+    }
